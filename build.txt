@@ -1,0 +1,5 @@
+displayName = Pickblock!
+author = TheLonelySheep
+version = 1.2.1
+includeSource = false
+homepage = https://forums.terraria.org/index.php?threads/pickblock.93646/

@@ -1,0 +1,14 @@
+Middle Click a block/Tile to get its item! Works for most Tiles and Walls!
+This Mod does NOT support other ModTiles!
+
+For more Information visit the Homepage!
+
+Version History:
+v1.2.1 - Added Config
+
+v1.2 - Works on walls now!
+       Pickblock is smarter
+
+v1.0.1 - Added an Icon
+
+v1.0 - Initial Release
