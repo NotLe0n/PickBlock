@@ -1,9 +1,12 @@
-Middle Click a block/Tile to get its item! Works for most Tiles and Walls!
-This Mod does NOT support other ModTiles!
+Middle click a tile to get or select its item! Works for most tiles and walls and even modded ones!
+
+If you already have the item in your inventory, it will be selected. If you don't, you will get a new item (if you haven't disabled that in the config)
 
 For more Information visit the Homepage!
 
 Version History:
+v1.3 - Ported to 1.4
+
 v1.2.1 - Added Config
 
 v1.2 - Works on walls now!

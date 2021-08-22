@@ -9,11 +9,12 @@ namespace PickBlock
 
         [DefaultValue(true)]
         [Label("Give Items")]
-        [Tooltip("Toggle if the mod should give you Items. \nBasicly: Do you want to cheat?")]
+        [Tooltip("Toggle if the mod should give you Items. \nBasically: Do you want to cheat?")]
         public bool GiveItems { get; set; }
+
         public override void OnChanged()
         {
-            PickBlockPlayer.GiveItems = GiveItems;
+            PickBlockPlayer.giveItems = GiveItems;
         }
     }
 }
