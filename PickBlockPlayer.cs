@@ -3,67 +3,67 @@ using Terraria.GameInput;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace PickBlock
+namespace PickBlock;
+
+class PickBlockPlayer : ModPlayer
 {
-    class PickBlockPlayer : ModPlayer
-    {
-        public static bool giveItems;
-        public override void ProcessTriggers(TriggersSet triggersSet)
-        {
-            if (!Main.mouseMiddle || !Main.mouseMiddleRelease)
-                return;
+	public static bool giveItems;
+	public override void ProcessTriggers(TriggersSet triggersSet)
+	{
+		if (!Main.mouseMiddle || !Main.mouseMiddleRelease)
+			return;
 
-            Tile tile = Main.tile[(int)(Main.MouseWorld.X / 16f), (int)(Main.MouseWorld.Y / 16f)];
+		Tile tile = Main.tile[(int)(Main.MouseWorld.X / 16f), (int)(Main.MouseWorld.Y / 16f)];
 
-            GiveTile(tile);
+		GiveTile(tile);
 
-        }
+	}
 
-        private void GiveTile(Tile tile)
-        {
-            var ID = tile.IsActive ? tile.type : tile.wall;
+	private void GiveTile(Tile tile)
+	{
+		var ID = tile.HasTile ? tile.TileType : tile.WallType;
 
-            if (tile.IsActive)
-            {
-                var tileAssociativeItems = ModContent.GetInstance<PickBlock>().TileAssociativeItems;
+		if (tile.HasTile)
+		{
+			var tileAssociativeItems = ModContent.GetInstance<PickBlock>().TileAssociativeItems;
 
-                if (!tileAssociativeItems.TryGetValue(ID, out int tileItemID))
-                    return;
+			if (!tileAssociativeItems.TryGetValue(ID, out int tileItemID))
+				return;
 
-                TileDrops.KillTile_GetItemDrops(x: 0, y: 0, tileCache: tile, out int tileDrop, dropItemStack: out _, secondaryItem: out _, secondaryItemStack: out _, includeLargeObjectDrops: true);
-                if (tileDrop != 0 && tileItemID != tileDrop)
-                    tileItemID = tileDrop;
+			TileDrops.KillTile_GetItemDrops(x: 0, y: 0, tileCache: tile, out int tileDrop, dropItemStack: out _, secondaryItem: out _, secondaryItemStack: out _, includeLargeObjectDrops: true);
+			if (tileDrop != 0 && tileItemID != tileDrop)
+				tileItemID = tileDrop;
 
-                GiveItem(tileItemID);
-            }
-            else
-            {
-                var wallAssociativeItems = ModContent.GetInstance<PickBlock>().WallAssociativeItems;
+			GiveItem(tileItemID);
+		}
+		else
+		{
+			var wallAssociativeItems = ModContent.GetInstance<PickBlock>().WallAssociativeItems;
 
-                if (!wallAssociativeItems.TryGetValue(ID, out int wallItemID))
-                    return;
+			if (!wallAssociativeItems.TryGetValue(ID, out int wallItemID))
+				return;
 
-                GiveItem(wallItemID);
-            }
-        }
+			GiveItem(wallItemID);
+		}
+	}
 
-        private void GiveItem(int tileItemID)
-        {
-            if (tileItemID != 0)
-            {
-                if (giveItems && !Player.HasItem(tileItemID))
-                {
-                    Player.QuickSpawnItem(tileItemID, 999); // give the player a new item
-                }
-                for (int i = 0; i < Main.InventorySlotsTotal; i++)
-                {
-                    if (Player.inventory[i].type == tileItemID)
-                    {
-                        // swap the current selected slot with the item
-                        Utils.Swap(ref Player.inventory[i], ref Player.inventory[Player.selectedItem]);
-                    }
-                }
-            }
-        }
-    }
+	private void GiveItem(int tileItemID)
+	{
+		if (tileItemID == 0)
+			return;
+
+		if (giveItems && !Player.HasItem(tileItemID))
+		{
+			Player.QuickSpawnItem(tileItemID, 999); // give the player a new item
+		}
+
+		for (int i = 0; i < Main.InventorySlotsTotal; i++)
+		{
+			if (Player.inventory[i].type == tileItemID)
+			{
+				// swap the current selected slot with the item
+				Utils.Swap(ref Player.inventory[i], ref Player.inventory[Player.selectedItem]);
+			}
+		}
+	}
 }
