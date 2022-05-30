@@ -16,7 +16,6 @@ class PickBlockPlayer : ModPlayer
 		Tile tile = Main.tile[(int)(Main.MouseWorld.X / 16f), (int)(Main.MouseWorld.Y / 16f)];
 
 		GiveTile(tile);
-
 	}
 
 	private void GiveTile(Tile tile)
@@ -54,7 +53,16 @@ class PickBlockPlayer : ModPlayer
 
 		if (giveItems && !Player.HasItem(tileItemID))
 		{
-			Player.QuickSpawnItem(tileItemID, 999); // give the player a new item
+			var item = new Item(tileItemID);
+			item.stack = item.maxStack;
+
+			// loop though the inventory
+			for (int i = 0; i < Main.InventoryItemSlotsCount; i++) {
+				if (Player.inventory[i].IsAir) { // is the slot a free space
+					Player.inventory[i] = item; // set item
+					break;
+				}
+			}
 		}
 
 		for (int i = 0; i < Main.InventorySlotsTotal; i++)

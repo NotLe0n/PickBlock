@@ -7,7 +7,7 @@ public class PickBlockConfig : ModConfig
 {
 	public override ConfigScope Mode => ConfigScope.ClientSide;
 
-	[DefaultValue(true)]
+	[DefaultValue(false)]
 	[Label("Give Items")]
 	[Tooltip("Toggle if the mod should give you Items. \nBasically: Do you want to cheat?")]
 	public bool GiveItems { get; set; }

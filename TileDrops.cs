@@ -1133,11 +1133,11 @@ internal static class TileDrops
 					dropItem = 283;
 				break;
 			case 519:
-				if (tileCache.TileFrameY == 90 && WorldGen.genRand.Next(2) == 0)
+				if (tileCache.TileFrameY == 90 && WorldGen.genRand.NextBool(2))
 					dropItem = 183;
 				break;
 			case 528:
-				if (WorldGen.genRand.Next(2) == 0)
+				if (WorldGen.genRand.NextBool(2))
 					dropItem = 183;
 				break;
 			case 110:
@@ -1158,7 +1158,7 @@ internal static class TileDrops
 			case 52:
 			case 62:
 			case 382:
-				if (Main.rand.Next(2) == 0 && GetPlayerForTile(x, y).cordage)
+				if (Main.rand.NextBool(2)&& GetPlayerForTile(x, y).cordage)
 					dropItem = 2996;
 				break;
 			case 227:
@@ -1169,57 +1169,24 @@ internal static class TileDrops
 				break;
 			case 4:
 				tileFrameY = tileCache.TileFrameY / 22;
-				switch (tileFrameY)
-				{
-					case 0:
-						dropItem = 8;
-						break;
-					case 8:
-						dropItem = 523;
-						break;
-					case 9:
-						dropItem = 974;
-						break;
-					case 10:
-						dropItem = 1245;
-						break;
-					case 11:
-						dropItem = 1333;
-						break;
-					case 12:
-						dropItem = 2274;
-						break;
-					case 13:
-						dropItem = 3004;
-						break;
-					case 14:
-						dropItem = 3045;
-						break;
-					case 15:
-						dropItem = 3114;
-						break;
-					case 16:
-						dropItem = 4383;
-						break;
-					case 17:
-						dropItem = 4384;
-						break;
-					case 18:
-						dropItem = 4385;
-						break;
-					case 19:
-						dropItem = 4386;
-						break;
-					case 20:
-						dropItem = 4387;
-						break;
-					case 21:
-						dropItem = 4388;
-						break;
-					default:
-						dropItem = 426 + tileFrameY;
-						break;
-				}
+				dropItem = tileFrameY switch {
+					0 => 8,
+					8 => 523,
+					9 => 974,
+					10 => 1245,
+					11 => 1333,
+					12 => 2274,
+					13 => 3004,
+					14 => 3045,
+					15 => 3114,
+					16 => 4383,
+					17 => 4384,
+					18 => 4385,
+					19 => 4386,
+					20 => 4387,
+					21 => 4388,
+					_ => 426 + tileFrameY,
+				};
 				break;
 			case 239:
 				tileFrameY = tileCache.TileFrameX / 18;
@@ -1776,20 +1743,20 @@ internal static class TileDrops
 				{
 					dropItem = 223;
 				}
-				else if (tileCache.TileFrameX >= 108 && tileCache.TileFrameX <= 126 && tileCache.TileType == 61 && Main.rand.Next(20) == 0)
+				else if (tileCache.TileFrameX >= 108 && tileCache.TileFrameX <= 126 && tileCache.TileType == 61 && Main.rand.NextBool(20))
 				{
 					dropItem = 208;
 				}
-				else if (Main.rand.Next(100) == 0)
+				else if (Main.rand.NextBool(100))
 				{
 					dropItem = 195;
 				}
 				break;
 			case 71:
 			case 72:
-				if (Main.rand.Next(40) == 0)
+				if (Main.rand.NextBool(40))
 					dropItem = 194;
-				else if (Main.rand.Next(2) == 0)
+				else if (Main.rand.NextBool(2))
 					dropItem = 183;
 				break;
 			case 50:
@@ -1869,7 +1836,7 @@ internal static class TileDrops
 		{
 			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
-				if (WorldGen.genRand.Next(2) == 0)
+				if (WorldGen.genRand.NextBool(2))
 				{
 					int k;
 					for (k = j; (!Main.tile[i, k].HasTile || !Main.tileSolid[Main.tile[i, k].TileType] || Main.tileSolidTop[Main.tile[i, k].TileType]); k++)
@@ -1913,7 +1880,7 @@ internal static class TileDrops
 					dropItem = 911;
 					break;
 				case 70:
-					if (WorldGen.genRand.Next(2) == 0)
+					if (WorldGen.genRand.NextBool(2))
 						dropItem = 183;
 					else
 						dropItem = 0;
@@ -1928,7 +1895,7 @@ internal static class TileDrops
 
 		int num = Player.FindClosest(new Vector2(x * 16, y * 16), 16, 16);
 		int axe = Main.player[num].inventory[Main.player[num].selectedItem].axe;
-		if (WorldGen.genRand.Next(100) < axe || Main.rand.Next(3) == 0)
+		if (WorldGen.genRand.Next(100) < axe || Main.rand.NextBool(3))
 			bonusWood = true;
 	}
 
@@ -1989,62 +1956,47 @@ internal static class TileDrops
 		if (style >= 1 && style <= 3)
 			return 646 + style;
 
-		switch (style)
-		{
-			case 4:
-				return 918;
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-			case 12:
-			case 13:
-			case 14:
-			case 15:
-				return 2386 + style - 5;
-			default:
-				return style switch
-				{
-					16 => 2529,
-					17 => 2545,
-					18 => 2562,
-					19 => 2577,
-					20 => 2637,
-					21 => 2638,
-					22 => 2639,
-					23 => 2640,
-					24 => 2816,
-					25 => 3132,
-					26 => 3134,
-					27 => 3133,
-					28 => 3911,
-					29 => 3912,
-					30 => 3913,
-					31 => 3914,
-					32 => 3934,
-					33 => 3968,
-					34 => 4148,
-					35 => 4169,
-					36 => 4190,
-					37 => 4211,
-					38 => 4301,
-					39 => 4569,
-					_ => 334,
-				};
-		}
+		return style switch {
+			4 => 918,
+			5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or 14 or 15 => 2386 + style - 5,
+			_ => style switch {
+				16 => 2529,
+				17 => 2545,
+				18 => 2562,
+				19 => 2577,
+				20 => 2637,
+				21 => 2638,
+				22 => 2639,
+				23 => 2640,
+				24 => 2816,
+				25 => 3132,
+				26 => 3134,
+				27 => 3133,
+				28 => 3911,
+				29 => 3912,
+				30 => 3913,
+				31 => 3914,
+				32 => 3934,
+				33 => 3968,
+				34 => 4148,
+				35 => 4169,
+				36 => 4190,
+				37 => 4211,
+				38 => 4301,
+				39 => 4569,
+				_ => 334,
+			},
+		};
 	}
 
 	private static void SetGemTreeDrops(int gemType, int seedType, Tile tileCache, ref int dropItem, ref int secondaryItem)
 	{
-		if (Main.rand.Next(10) == 0)
+		if (Main.rand.NextBool(10))
 			dropItem = gemType;
 		else
 			dropItem = 3;
 
-		if (tileCache.TileFrameX >= 22 && tileCache.TileFrameY >= 198 && Main.rand.Next(2) == 0)
+		if (tileCache.TileFrameX >= 22 && tileCache.TileFrameY >= 198 && Main.rand.NextBool(2))
 			secondaryItem = seedType;
 	}
 }

@@ -21,10 +21,6 @@ public class PickBlock : Mod
 
 			if (item.createTile != -1)
 			{
-				if (i == 1177)
-				{
-				}
-
 				if (TileAssociativeItems.ContainsKey(item.createTile))
 					continue;
 
