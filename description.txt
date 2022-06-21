@@ -1,17 +1,21 @@
 Middle click a tile to get or select its item! Works for most tiles and walls and even modded ones!
+You can also set a setting in the config to give you the item if you don't have it.
 
-If you already have the item in your inventory, it will be selected. If you don't, you will get a new item (if you haven't disabled that in the config)
+If you have any problems, bugs, or suggestions contact me on my discord: https://discord.gg/NX4DVzz2v6
 
-For more Information visit the Homepage!
+Special thanks to Gin for making the icon.
 
-Version History:
-v1.3 - Ported to 1.4
+Recent Changes:
+v1.3.1
+- Made "cheat mode" opt-in
+- Gives you the "maxStack" amount of items instead of always 999.
 
-v1.2.1 - Added Config
+v1.3
+- Ported to 1.4
 
-v1.2 - Works on walls now!
-       Pickblock is smarter
+v1.2.1 
+- Added Config
 
-v1.0.1 - Added an Icon
-
-v1.0 - Initial Release
+v1.2 
+- Works on walls now!
+- Pickblock is smarter

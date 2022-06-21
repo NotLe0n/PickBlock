@@ -1,0 +1,31 @@
+[h1]PickBlock![/h1]
+Middle click a tile to get or select its item! Works for most tiles and walls and even modded ones!
+You can also set a setting in the config to give you the item if you don't have it; useful for builders.
+
+If you have any problems, bugs, or suggestions contact me on my [url=https://discord.gg/NX4DVzz2v6]discord[/url]!
+
+Special thanks to [b]Gin[/b] for making the icon.
+
+[h2]Recent Changes:[/h2]
+
+[h3]v1.3.1[/h3]
+[list]
+[*] Made "cheat mode" opt-in
+[*] Gives you the "maxStack" amount of items instead of always 999.
+[/list]
+
+[h3]v1.3[/h3]
+[list]
+[*] Ported to 1.4
+[/list]
+
+[h3]v1.2.1[/h3]
+[list]
+[*] Added Config
+[/list]
+
+[h3]v1.2[/h3]
+[list]
+[*] Works on walls now!
+[*] Pickblock is smarter
+[/list]
