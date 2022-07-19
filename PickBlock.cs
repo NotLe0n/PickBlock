@@ -29,7 +29,7 @@ public class PickBlock : Mod
 
 			if (item.createWall != -1)
 			{
-				if (WallAssociativeItems.ContainsKey(item.createTile))
+				if (WallAssociativeItems.ContainsKey(item.createWall))
 					continue;
 
 				WallAssociativeItems.Add(item.createWall, item.type);
