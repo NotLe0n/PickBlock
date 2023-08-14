@@ -6,6 +6,9 @@ If you have any problems, bugs, or suggestions contact me on my discord: https:/
 Special thanks to Gin for making the icon.
 
 Recent Changes:
+v1.4
+- Ported to 1.4.4
+
 v1.3.1
 - Made "cheat mode" opt-in
 - Gives you the "maxStack" amount of items instead of always 999.

@@ -15,20 +15,17 @@ public class PickBlock : Mod
 		WallAssociativeItems = new Dictionary<int, int>();
 
 		Item item = new();
-		for (int i = 1; i < ItemLoader.ItemCount; i++)
-		{
+		for (int i = 1; i < ItemLoader.ItemCount; i++) {
 			item.SetDefaults(i);
 
-			if (item.createTile != -1)
-			{
+			if (item.createTile != -1) {
 				if (TileAssociativeItems.ContainsKey(item.createTile))
 					continue;
 
 				TileAssociativeItems.Add(item.createTile, item.type);
 			}
 
-			if (item.createWall != -1)
-			{
+			if (item.createWall != -1) {
 				if (WallAssociativeItems.ContainsKey(item.createWall))
 					continue;
 

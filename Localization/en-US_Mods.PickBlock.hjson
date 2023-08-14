@@ -1,0 +1,16 @@
+Configs: {
+	PickBlockConfig: {
+		DisplayName: Pick Block Config
+
+		giveItems: {
+			Label: Give Items
+			Tooltip:
+				'''
+				Toggle if the mod should give you Items. 
+				Basically: Do you want to cheat?
+				'''
+		}
+	}
+}
+
+Keybinds.PickBlock.DisplayName: Pick Block
